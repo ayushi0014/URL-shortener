@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://Ayushi:ayushi-db@cluster0.sbmgq.mongodb.net/Url-shortener?retryWrites=true&w=majority",
+    "baseUrl": "http://localhost:3000"
+}
