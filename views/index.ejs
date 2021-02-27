@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="public/index.css" type="text/css" rel="stylesheet"/>
     <title>Url Shortener</title>
 </head>
 <body>
-    <form action="/url" method="POST">
-        <input type="url" id="url" name="url" placeholder='url here!'/>
-        <input type="submit" value="Get url" />
-        <% if (locals.error) {%>
-            <p><%= error %></p>
-        <% } %>
-        <% if (locals.short_url) {%>
-            <a href="<%= short_url %>"><p><%= short_url %></p></a>
-        <% } %>
-    </form>
+    
+                <div class="center-div">  
+                    <button id="img-btn"><img src="public/images/link_icon.png"  class="link_icon"/></button>
+                    <h1 class="heading">Url Shortener</h1>
+                    <img src="public/images/image.jpg" class="side-img1" />
+                    <p class="para">
+                        Bored of sharing those long urls. 
+                        Try something new, enter those long urls in the box below 
+                        and get short versions of long and messy urls.
+                    </p>
+            
+                    <form class="form">
+                        <input class="url-input" type="url" name="url" placeholder='Enter your Url...'/>
+                        <button id="button" type="submit">Shortify!</button>
+                        <div class="response">
+                            
+                        </div>
+                    </form>
+                </div>
+
+    <script src="public/index.js"></script>
 </body>
 </html>

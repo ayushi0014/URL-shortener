@@ -12,7 +12,7 @@ router.post('/', async (req, res, next) => {
 
     //check base url
     if(!validUrl.isUri(baseUrl)) {
-        res.render('index', { error: 'Internal Servor Error!'});
+        res.send('Internal Servor Error!');
     }
 
     //generate urlCode
@@ -23,7 +23,7 @@ router.post('/', async (req, res, next) => {
             try { 
                 let result = await Url.findOne({ longUrl: url });
                 if(result){
-                res.render('index', {short_url: result.shortUrl})
+                res.send(result.shortUrl)
                 } else {
                 const shortUrl=  baseUrl + '/' + urlCode ;
                 const db = new Url({
@@ -33,13 +33,13 @@ router.post('/', async (req, res, next) => {
                     date: Date()
                 });
                 await db.save();
-                res.render('index', { short_url: shortUrl});
+                res.send(shortUrl);
             }}
         catch(err ) {
-            res.render('index', { error: err.message });
+            res.send(err.message);
         }
     } else {
-        res.render('index', { error: 'Invalid Url, Please enter a valid url!' });
+        res.send('Invalid Url, Please enter a valid url!');
     }
 
 });
