@@ -7,12 +7,12 @@ const Url = require('../models/url');
 
 router.post('/', async (req, res, next) => {
     const { url } = req.body;
-    const baseUrl = process.env.baseUrl;
+    const baseUrl = `http://localhost:${process.env.port}/`;
 
     //check base url
-    // if(!validUrl.isUri(baseUrl)) {
-    //     res.send('Internal Servor Error!');
-    // }
+    if(!validUrl.isUri(baseUrl)) {
+        res.send('Internal Servor Error!');
+    }
 
     //generate urlCode
     const urlCode = shortid.generate();
