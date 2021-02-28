@@ -10,9 +10,9 @@ router.post('/', async (req, res, next) => {
     const baseUrl = process.env.baseUrl;
 
     //check base url
-    if(!validUrl.isUri(baseUrl)) {
-        res.send('Internal Servor Error!');
-    }
+    // if(!validUrl.isUri(baseUrl)) {
+    //     res.send('Internal Servor Error!');
+    // }
 
     //generate urlCode
     const urlCode = shortid.generate();
