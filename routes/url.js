@@ -4,12 +4,11 @@ const validUrl = require('valid-url');
 const shortid = require('shortid');
 
 const Url = require('../models/url');
-const { base } = require('../models/url');
+
 
 router.post('/', async (req, res, next) => {
     const { url } = req.body;
     const baseUrl = `http://localhost:${process.env.PORT}`;
-    console.log(baseUrl);
 
     //check base url
     if(!validUrl.isUri(baseUrl)) {
